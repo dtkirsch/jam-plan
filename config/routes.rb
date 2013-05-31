@@ -1,4 +1,10 @@
 JamPlan::Application.routes.draw do
+  resources :jams
+
+
+  resources :venues
+
+
   authenticated :user do
     root :to => 'home#index'
   end

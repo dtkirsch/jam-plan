@@ -1,0 +1,33 @@
+<h1>Listing jams</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>Set</th>
+    <th>Venue</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @jams.each do |jam| %>
+  <tr>
+    <td><%= jam.name %></td>
+    <td><%= jam.start %></td>
+    <td><%= jam.end %></td>
+    <td><%= jam.set %></td>
+    <td><%= jam.venue %></td>
+    <td><%= jam.user %></td>
+    <td><%= link_to 'Show', jam %></td>
+    <td><%= link_to 'Edit', edit_jam_path(jam) %></td>
+    <td><%= link_to 'Destroy', jam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Jam', new_jam_path %>

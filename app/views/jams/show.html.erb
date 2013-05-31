@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @jam.name %>
+</p>
+
+<p>
+  <b>Start:</b>
+  <%= @jam.start %>
+</p>
+
+<p>
+  <b>End:</b>
+  <%= @jam.end %>
+</p>
+
+<p>
+  <b>Set:</b>
+  <%= @jam.set %>
+</p>
+
+<p>
+  <b>Venue:</b>
+  <%= @jam.venue %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @jam.user %>
+</p>
+
+
+<%= link_to 'Edit', edit_jam_path(@jam) %> |
+<%= link_to 'Back', jams_path %>

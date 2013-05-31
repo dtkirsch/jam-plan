@@ -11,7 +11,21 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130531194936) do
+ActiveRecord::Schema.define(:version => 20130531203715) do
+
+  create_table "jams", :force => true do |t|
+    t.string   "name"
+    t.time     "start"
+    t.time     "end"
+    t.time     "set"
+    t.integer  "venue_id"
+    t.integer  "user_id"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
+
+  add_index "jams", ["user_id"], :name => "index_jams_on_user_id"
+  add_index "jams", ["venue_id"], :name => "index_jams_on_venue_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"
@@ -49,5 +63,13 @@ ActiveRecord::Schema.define(:version => 20130531194936) do
   end
 
   add_index "users_roles", ["user_id", "role_id"], :name => "index_users_roles_on_user_id_and_role_id"
+
+  create_table "venues", :force => true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "map_url"
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
+  end
 
 end
