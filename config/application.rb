@@ -75,5 +75,8 @@ module JamPlan
 
     # For heroku:
     config.assets.initialize_on_precompile = false
+    
+    # For pdfs:
+    config.assets.paths << "#{Rails.root}/app/assets/pdfs"
   end
 end
