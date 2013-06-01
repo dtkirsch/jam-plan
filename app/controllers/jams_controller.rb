@@ -42,7 +42,7 @@ class JamsController < ApplicationController
   # POST /jams.json
   def create
     @jam = Jam.new(params[:jam])
-
+    @jam.user = current_user
     respond_to do |format|
       if @jam.save
         format.html { redirect_to @jam, notice: 'Jam was successfully created.' }
