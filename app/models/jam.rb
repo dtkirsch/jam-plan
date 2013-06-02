@@ -1,6 +1,16 @@
 class Jam < ActiveRecord::Base
-  belongs_to :venue
-  belongs_to :user
+  # start (time), end (time), set (time), name (string), date (date)
   attr_accessible :end, :name, :set, :start, :date
+
+  # Jams have venues
+  belongs_to :venue
   attr_accessible :venue_id
+
+  # Jams have a user (intended to be the admin)
+  belongs_to :user
+
+  # Jams have songs
+  has_and_belongs_to_many :songs
+  attr_accessible :song_ids
+
 end

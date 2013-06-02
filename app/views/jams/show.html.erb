@@ -30,6 +30,14 @@
   <%= @jam.user %>
 </p>
 
+<p>
+  <b>Songs:</b>
+  <br/>
+  <% @jam.songs.each do |song| %>
+    <%= render "songs/song", :song => song %>
+  <% end %>
+</p>
+
 
 <%= link_to 'Edit', edit_jam_path(@jam) %> |
 <%= link_to 'Back', jams_path %>

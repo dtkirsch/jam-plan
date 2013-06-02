@@ -1,5 +1,10 @@
 class Song < ActiveRecord::Base
   attr_accessible :bassC, :name, :trebleBb, :trebleC
+  has_and_belongs_to_many :jams
+
+  def to_s
+    @name
+  end
 
   def self.populate
     files = Dir.glob("app/assets/pdfs/*").map{|f| File.basename(f)}
