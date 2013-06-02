@@ -20,6 +20,11 @@
   <%= link_to @song.trebleBb, asset_path(@song.trebleBb), :class => "links" %>
 </p>
 
+<p>
+  <b># of times played:</b>
+  <%= @song.jams.length %>
+</p>
+
 
 <%= link_to 'Edit', edit_song_path(@song) %> |
 <%= link_to 'Back', songs_path %>
