@@ -1,0 +1,28 @@
+<h1>Listing songs</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Treble C</th>
+    <th>Bass C</th>
+    <th>Treble Bb</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @songs.each do |song| %>
+  <tr>
+    <td><%= song.name %></td>
+    <td>  <%= link_to song.trebleC, asset_path(song.trebleC), :class => "links" %></td>
+    <td>  <%= link_to song.bassC, asset_path(song.bassC), :class => "links" %></td>
+    <td>  <%= link_to song.trebleBb, asset_path(song.trebleBb), :class => "links" %></td>
+    <td><%= link_to 'Show', song %></td>
+    <td><%= link_to 'Delete', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Song', new_song_path %>

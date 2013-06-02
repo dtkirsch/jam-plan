@@ -1,9 +1,9 @@
 JamPlan::Application.routes.draw do
   resources :jams
 
+  resources :songs
 
   resources :venues
-
 
   authenticated :user do
     root :to => 'home#index'

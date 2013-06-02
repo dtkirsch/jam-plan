@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @song.name %>
+</p>
+
+<p>
+  <b>Treblec:</b>
+  <%= link_to @song.trebleC, asset_path(@song.trebleC), :class => "links" %>
+</p>
+
+<p>
+  <b>Bassc:</b>
+  <%= link_to @song.bassC, asset_path(@song.bassC), :class => "links" %>
+</p>
+
+<p>
+  <b>Treblebb:</b>
+  <%= link_to @song.trebleBb, asset_path(@song.trebleBb), :class => "links" %>
+</p>
+
+
+<%= link_to 'Edit', edit_song_path(@song) %> |
+<%= link_to 'Back', songs_path %>

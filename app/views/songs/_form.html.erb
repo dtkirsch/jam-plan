@@ -1,0 +1,14 @@
+<%= simple_form_for(@song) do |f| %>
+  <%= f.error_notification %>
+
+  <div class="form-inputs">
+    <%= f.input :name %>
+    <%= f.input :trebleC, :label => "Filename for treble clef C notation" %>
+    <%= f.input :bassC, :label => "Filename for bass clef C notation" %> 
+    <%= f.input :trebleBb, :label => "Filename for treble clef B-flat notation" %>
+  </div>
+
+  <div class="form-actions">
+    <%= f.button :submit %>
+  </div>
+<% end %>
