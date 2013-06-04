@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Jam:</b>
+  <%= @jams_user.jam %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @jams_user.user %>
+</p>
+
+
+<%= link_to 'Edit', edit_jams_user_path(@jams_user) %> |
+<%= link_to 'Back', jams_users_path %>

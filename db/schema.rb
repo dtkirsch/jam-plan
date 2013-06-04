@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130602174639) do
+ActiveRecord::Schema.define(:version => 20130603231847) do
 
   create_table "jams", :force => true do |t|
     t.string   "name"
@@ -35,6 +35,15 @@ ActiveRecord::Schema.define(:version => 20130602174639) do
 
   add_index "jams_songs", ["jam_id"], :name => "index_jams_songs_on_jam_id"
   add_index "jams_songs", ["song_id"], :name => "index_jams_songs_on_song_id"
+
+  create_table "jams_users", :force => true do |t|
+    t.integer "jam_id"
+    t.integer "user_id"
+  end
+
+  add_index "jams_users", ["jam_id", "user_id"], :name => "index_jams_users_on_jam_id_and_user_id", :unique => true
+  add_index "jams_users", ["jam_id"], :name => "index_jams_users_on_jam_id"
+  add_index "jams_users", ["user_id"], :name => "index_jams_users_on_user_id"
 
   create_table "roles", :force => true do |t|
     t.string   "name"

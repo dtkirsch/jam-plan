@@ -1,0 +1,2 @@
+module JamsUsersHelper
+end

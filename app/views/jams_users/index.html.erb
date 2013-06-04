@@ -1,0 +1,25 @@
+<h1>Listing jams_users</h1>
+
+<table>
+  <tr>
+    <th>Jam</th>
+    <th>User</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @jams_users.each do |jams_user| %>
+  <tr>
+    <td><%= jams_user.jam %></td>
+    <td><%= jams_user.user %></td>
+    <td><%= link_to 'Show', jams_user %></td>
+    <td><%= link_to 'Edit', edit_jams_user_path(jams_user) %></td>
+    <td><%= link_to 'Destroy', jams_user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Jams user', new_jams_user_path %>

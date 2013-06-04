@@ -13,4 +13,8 @@ class Jam < ActiveRecord::Base
   has_and_belongs_to_many :songs
   attr_accessible :song_ids
 
+  # Jams also have a bunch of users (who are attendees)
+  has_and_belongs_to_many :users
+  attr_accessible :user_ids
+
 end

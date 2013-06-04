@@ -1,0 +1,5 @@
+  <% if current_user.jams.include? @jam %>
+    <%= render 'jams_users/cancel' %>
+  <% else %>
+    <%= render 'jams_users/attend' %>
+  <% end %>
