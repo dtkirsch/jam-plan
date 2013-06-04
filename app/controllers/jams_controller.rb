@@ -1,4 +1,5 @@
 class JamsController < ApplicationController
+  load_and_authorize_resource
   # GET /jams
   # GET /jams.json
   def index
@@ -24,7 +25,6 @@ class JamsController < ApplicationController
   # GET /jams/new
   # GET /jams/new.json
   def new
-    authorize! :new, @user, :message => 'Not authorized as an administrator.'
     @jam = Jam.new
 
     respond_to do |format|

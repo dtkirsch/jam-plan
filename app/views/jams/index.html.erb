@@ -32,7 +32,10 @@
 
 <br />
 
-<%= link_to 'New Jam', new_jam_path %>
-
+<% if can? :create, Jam %> 
+  <%= link_to 'New Jam', new_jam_path %>
+<% end %>
 <br/>
-<%= link_to 'Manage users', users_path %>
+<% if can? :manage, User %> 
+  <%= link_to 'Manage users', users_path %>
+<% end %> 
