@@ -1,47 +1,6 @@
-<h1>Listing jams</h1>
+<%= render 'jams_list', :list_name => "Upcoming jams", :jams => @future_jams %>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Date</th>
-    <th>Start</th>
-    <th>End</th>
-    <th>Set</th>
-    <th>Venue</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @jams.each do |jam| %>
-  <tr>
-    <td><%= jam.name %></td>
-    <td>
-      <% if jam.date.to_time > Time.now %>
-        <%= jam.date.strftime("%a %B %d") %></td>
-      <% else %>
-        <%= jam.date.strftime("%a %B %d, %Y") %></td>
-      <% end %>
-    <td><%= jam.start.to_s(:clock_time) %></td>
-    <td><%= jam.end.to_s(:clock_time) %></td>
-    <td><%= jam.set.to_s(:clock_time) %></td>
-    <td><%= jam.venue.name unless jam.venue.nil? %></td>
-
-    <% if can? :show, jam %> 
-      <td><%= link_to 'Show', jam %></td>
-    <% end %>
-    <% if can? :edit, jam %>
-      <td><%= link_to 'Edit', edit_jam_path(jam) %></td>
-    <% end %>    
-    <% if can? :destroy, jam %>
-      <td><%= link_to 'Cancel', jam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-    <% end %>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
+<br/>
 <% if can? :create, Jam %> 
   <%= link_to 'New Jam', new_jam_path %>
 <% end %>
@@ -49,3 +8,5 @@
 <% if can? :manage, User %> 
   <%= link_to 'Manage musicians', users_path %>
 <% end %> 
+
+<%= render 'jams_list', :list_name => "Past jams", :jams => @past_jams %>

@@ -1,0 +1,23 @@
+  <tr>
+    <td><%= jam.name %></td>
+    <td>
+      <% if jam.date.to_time > Time.now %>
+        <%= jam.date.strftime("%a %B %d") %></td>
+      <% else %>
+        <%= jam.date.strftime("%a %B %d, %Y") %></td>
+      <% end %>
+    <td><%= jam.start.to_s(:clock_time) %></td>
+    <td><%= jam.end.to_s(:clock_time) %></td>
+    <td><%= jam.set.to_s(:clock_time) %></td>
+    <td><%= jam.venue.name unless jam.venue.nil? %></td>
+
+    <% if can? :show, jam %> 
+      <td><%= link_to 'Show', jam %></td>
+    <% end %>
+    <% if can? :edit, jam %>
+      <td><%= link_to 'Edit', edit_jam_path(jam) %></td>
+    <% end %>    
+    <% if can? :destroy, jam %>
+      <td><%= link_to 'Cancel', jam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
+  </tr>

@@ -1,0 +1,19 @@
+<h2><%= list_name %></h2>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Date</th>
+    <th>Start</th>
+    <th>End</th>
+    <th>Set</th>
+    <th>Venue</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% jams.each do |jam| %>
+  <%= render 'jam', :jam => jam %>
+<% end %>
+</table>
