@@ -1,4 +1,7 @@
 class SongsController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource  
+
   # GET /songs
   # GET /songs.json
   def index

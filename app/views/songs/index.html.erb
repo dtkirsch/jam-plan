@@ -18,11 +18,13 @@
     <td>  <%= link_to song.bassC, asset_path(song.bassC), :class => "links" %></td>
     <td>  <%= link_to song.trebleBb, asset_path(song.trebleBb), :class => "links" %></td>
     <td><%= link_to 'Show', song %></td>
-    <td><%= link_to 'Delete', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if can? :destroy, Song %>
+      <td><%= link_to 'Delete', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Song', new_song_path %>
+

@@ -10,6 +10,9 @@ class Ability
     can :index, Jam
     can :show, Jam
 
+    can :index, Song
+    can :show, Song
+
     # Define abilities for the passed in user here. For example:
     #
     #   user ||= User.new # guest user (not logged in)
