@@ -1,5 +1,7 @@
-  <% if current_user.jams.include? @jam %>
-    <%= render 'jams_users/cancel' %>
+<div class="span11">
+  <% if current_user.jams.include? jam %>
+    <%= render 'jams_users/cancel', :jam => jam %>
   <% else %>
-    <%= render 'jams_users/attend' %>
+    <%= render 'jams_users/attend', :jam => jam %>
   <% end %>
+<div class="span11">

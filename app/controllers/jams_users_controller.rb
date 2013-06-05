@@ -47,7 +47,7 @@ class JamsUsersController < ApplicationController
 #      if @jams_user.save
       begin
         current_user.jams << @jam
-        format.html { redirect_to @jam, notice: 'Successfully added you to jam list' }
+        format.html { redirect_to :back, notice: 'Successfully added you to jam list' }
         format.json { render json: @jams_user, status: :created, location: @jams_user }
       rescue
         format.html { redirect_to @jam, notice: 'Error: unable to add you to the jam list'}
@@ -80,7 +80,7 @@ class JamsUsersController < ApplicationController
     @jams_user.destroy
 
     respond_to do |format|
-      format.html { redirect_to @jam, notice: 'You are no longer attending this jam' }
+      format.html { redirect_to :back, notice: 'You are no longer attending this jam' }
       format.json { head :no_content }
     end
   end

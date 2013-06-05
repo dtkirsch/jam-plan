@@ -36,7 +36,7 @@
   <% end %>
 </p>
 
-<%= render "jams_users/attend_form" %> 
+<%= render "jams_users/attend_form", :jam => @jam %> 
 <br/><br/>
 <% if can? :edit, @jam %>
   <%= link_to 'Edit', edit_jam_path(@jam) %> | 

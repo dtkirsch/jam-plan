@@ -1,4 +1,4 @@
-You are attending this jam (
-<%= link_to "Cancel", {:controller => :jams_users,
-      :action => 'destroy', :id => @jam.id }, :method => :delete %>
-)
+<%= link_to "Cancel attendance", {:controller => :jams_users,
+      :action => 'destroy', :id => jam.id }, :method => :delete, :class => 'btn btn-mini' %>
+You are attending this jam 
+
