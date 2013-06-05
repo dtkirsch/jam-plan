@@ -8,9 +8,9 @@ JamPlan::Application.routes.draw do
   resources :jams_users
 
   authenticated :user do
-    root :to => 'home#index'
+    root :to => 'jams#index'
   end
-  root :to => "home#index"
+  root :to => "jams#index"
   devise_for :users
   resources :users
 end
