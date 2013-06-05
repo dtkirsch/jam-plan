@@ -4,30 +4,28 @@
   <b>Name:</b>
   <%= @jam.name %>
 </p>
-
 <p>
   <b>Start:</b>
-  <%= @jam.start %>
+  <%= @jam.date.strftime("%a %B %d, %Y") %>
+</p>
+<p>
+  <b>Start:</b>
+  <%= @jam.start.to_s(:clock_time) %>
 </p>
 
 <p>
   <b>End:</b>
-  <%= @jam.end %>
+  <%= @jam.end.to_s(:clock_time) %>
 </p>
 
 <p>
   <b>Set:</b>
-  <%= @jam.set %>
+  <%= @jam.set.to_s(:clock_time) %>
 </p>
 
 <p>
   <b>Venue:</b>
-  <%= @jam.venue %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @jam.user %>
+  <%= link_to "#{@jam.venue.name} (#{@jam.venue.address})", @jam.venue %>
 </p>
 
 <p>

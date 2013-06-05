@@ -17,10 +17,15 @@
 <% @jams.each do |jam| %>
   <tr>
     <td><%= jam.name %></td>
-    <td><%= jam.date %></td>
-    <td><%= jam.start.to_s(:time) %></td>
-    <td><%= jam.end.to_s(:time) %></td>
-    <td><%= jam.set.to_s(:time) %></td>
+    <td>
+      <% if jam.date.to_time > Time.now %>
+        <%= jam.date.strftime("%a %B %d") %></td>
+      <% else %>
+        <%= jam.date.strftime("%a %B %d, %Y") %></td>
+      <% end %>
+    <td><%= jam.start.to_s(:clock_time) %></td>
+    <td><%= jam.end.to_s(:clock_time) %></td>
+    <td><%= jam.set.to_s(:clock_time) %></td>
     <td><%= jam.venue.name unless jam.venue.nil? %></td>
 
     <td><%= link_to 'Show', jam %></td>
