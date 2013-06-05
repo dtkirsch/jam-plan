@@ -1,11 +1,26 @@
   <div class="row-fluid" >
-    <div class="span4">
+    <div class="span2">
       <%= link_to jam, jam %>
+      <br/>
+      <%= jam.date.strftime("%a, %B #{jam.date.day.ordinalize} %Y") %> 
+      <br/><br/>
+      At: <%= link_to jam.venue.name, jam.venue %>
+      <br/>
+      <%= jam.venue.address %> (<%= link_to "map", jam.venue.map_url %>)
     </div>
-    <div class="span4"> 
-      Start: <%= jam.start.to_s(:clock_time) %>
-      End: <%= jam.end.to_s(:clock_time) %>
+    <div class="span2"> 
+      Timing: <br/>
+      Start: <%= jam.start.to_s(:clock_time) %><br/>
+      End: <%= jam.end.to_s(:clock_time) %><br/>
       Set: <%= jam.set.to_s(:clock_time) %>
+    </div>
+    <div class="span4">
+      Songs:<br/>
+      <ol>
+        <% jam.songs.each do |song| %>
+        <li><%= render "songs/song", :song => song %></li>
+        <% end %>
+      </ol>
     </div>
     <% if can? :show, jam %> 
       <div class="span1"><%= link_to 'Show', jam, :class => 'btn btn-mini' %></div>

@@ -21,7 +21,7 @@ class Jam < ActiveRecord::Base
 
   def to_s
     return name if name && !(name.empty?)
-    return "#{self.venue.name} jam on #{date}"
+    return "#{self.venue.name} jam"
   end
 
 end
