@@ -1,10 +1,11 @@
-<h3>Users</h3>
+<h3>Musicians</h3>
 <div class="span8">
 <table class="table table-condensed">
   <thead>
     <tr>
       <th>Username</th>
       <th>Email</th>
+      <th>Instrument</th>
       <th>Registered</th>
       <th>Role</th>
       <th></th>
@@ -16,6 +17,7 @@
     <tr>
       <td><%= link_to user.name, user %></td>
       <td><%= user.email %></td>
+      <td><%= user.instrument %></td>
       <td><%= user.created_at.to_date %></td>
       <td><%= user.roles.first.name.titleize unless user.roles.first.nil? %></td>
       <td>
@@ -28,6 +30,4 @@
   </tbody>
 </table>
 </div>
-
-<%= link_to 'Manage jams', jams_path %>
 
