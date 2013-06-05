@@ -14,7 +14,7 @@
   <tr>
     <td><%= venue.name %></td>
     <td><%= venue.address %></td>
-    <td><%= venue.map_url %></td>
+    <td><%= link_to venue.map_url, venue.map_url %> </td>
     <td><%= link_to 'Show', venue %></td>
     <td><%= link_to 'Edit', edit_venue_path(venue) %></td>
     <td><%= link_to 'Destroy', venue, method: :delete, data: { confirm: 'Are you sure?' } %></td>

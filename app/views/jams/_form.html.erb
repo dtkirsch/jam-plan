@@ -4,10 +4,12 @@
   <div class="form-inputs">
     <%= f.input :name %>
     <%= f.input :date %>
-    <%= f.input :start %>
-    <%= f.input :end %>
-    <%= f.input :set %>
-    <%= f.association :venue %>
+    <%= f.input :start, :as => :time, :ampm => true %>
+    <%= f.input :end, :as => :time, :ampm => true %>
+    <%= f.input :set, :as => :time, :ampm => true %>
+    <%= f.association :venue %> (or <%= link_to "Add a new venue", new_venue_path %>)
+    <br/>
+    <br/>
     <%= f.association :songs, :as => :check_boxes, :label_method => lambda { |song| "#{song.name} | played #{song.times_played} times" }, collection: Song.order('name ASC') %>
   </div>
 
