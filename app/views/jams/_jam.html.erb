@@ -1,23 +1,20 @@
-  <tr>
-    <td><%= jam.name %></td>
-    <td>
-      <% if jam.date.to_time > Time.now %>
-        <%= jam.date.strftime("%a %B %d") %></td>
-      <% else %>
-        <%= jam.date.strftime("%a %B %d, %Y") %></td>
-      <% end %>
-    <td><%= jam.start.to_s(:clock_time) %></td>
-    <td><%= jam.end.to_s(:clock_time) %></td>
-    <td><%= jam.set.to_s(:clock_time) %></td>
-    <td><%= jam.venue.name unless jam.venue.nil? %></td>
-
+  <div class="row-fluid" >
+    <div class="span4">
+      <%= link_to jam, jam %>
+    </div>
+    <div class="span4"> 
+      Start: <%= jam.start.to_s(:clock_time) %>
+      End: <%= jam.end.to_s(:clock_time) %>
+      Set: <%= jam.set.to_s(:clock_time) %>
+    </div>
     <% if can? :show, jam %> 
-      <td><%= link_to 'Show', jam %></td>
+      <div class="span1"><%= link_to 'Show', jam, :class => 'btn btn-mini' %></div>
     <% end %>
     <% if can? :edit, jam %>
-      <td><%= link_to 'Edit', edit_jam_path(jam) %></td>
+      <div class="span1"><%= link_to 'Edit', edit_jam_path(jam), :class => 'btn btn-mini' %></div>
     <% end %>    
     <% if can? :destroy, jam %>
-      <td><%= link_to 'Cancel', jam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <div class="span1"><%= link_to 'Cancel', jam, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini' %></div>
     <% end %>
-  </tr>
+
+  </div>

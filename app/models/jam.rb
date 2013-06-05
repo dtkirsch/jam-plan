@@ -17,4 +17,11 @@ class Jam < ActiveRecord::Base
   has_and_belongs_to_many :users
   attr_accessible :user_ids
 
+  validates_presence_of :venue, :date, :start
+
+  def to_s
+    return name if name && !(name.empty?)
+    return "#{self.venue.name} jam on #{date}"
+  end
+
 end
