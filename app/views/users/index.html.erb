@@ -1,9 +1,9 @@
 <h3>Musicians</h3>
-<div class="span8">
-<table class="table table-condensed">
+
+<table class="table table-condensed table-striped">
   <thead>
     <tr>
-      <th>Username</th>
+      <th>User</th>
       <th>Email</th>
       <th>Instrument</th>
       <th>Registered</th>
@@ -15,8 +15,9 @@
   <tbody>
   <% @users.each do |user| %>
     <tr>
-      <td><%= link_to user.name, user %></td>
-      <td><%= user.email %></td>
+      <td><%= link_to user.name, user %>
+	<br/>
+	<%= user.email %></td>
       <td><%= user.instrument %></td>
       <td><%= user.created_at.to_date %></td>
       <td><%= user.roles.first.name.titleize unless user.roles.first.nil? %></td>
@@ -29,5 +30,5 @@
   <% end %>
   </tbody>
 </table>
-</div>
+
 
