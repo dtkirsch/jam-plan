@@ -1,5 +1,5 @@
   <div class="row-fluid" >
-    <div class="span2">
+    <div class="span3">
       <%= link_to jam, jam %>
       <br/>
       <%= jam.date.strftime("%a, %B #{jam.date.day.ordinalize} %Y") %> 
@@ -8,13 +8,13 @@
       <br/>
       <%= jam.venue.address %> (<%= link_to "map", jam.venue.map_url %>)
     </div>
-    <div class="span2"> 
+    <div class="span3"> 
       Timing: <br/>
-      Start: <%= jam.start.to_s(:clock_time) %><br/>
-      End: <%= jam.end.to_s(:clock_time) %><br/>
-      Set: <%= jam.set.to_s(:clock_time) %>
+      Rehearse: <br/><%= jam.start.to_s(:clock_time) %> - <%= jam.end.to_s(:clock_time) %><br/>
+      <br/>
+      Perform: <br/><%= jam.set.to_s(:clock_time) %>
     </div>
-    <div class="span4">
+    <div class="span5">
       Songs:<br/>
       <ol>
         <% jam.songs.each do |song| %>
@@ -22,14 +22,16 @@
         <% end %>
       </ol>
     </div>
+    <div class="span1">
     <% if can? :show, jam %> 
-      <div class="span1"><%= link_to 'Show', jam, :class => 'btn btn-mini' %></div>
+      <%= link_to 'Show', jam, :class => 'btn btn-mini' %><br/><br/>
     <% end %>
     <% if can? :edit, jam %>
-      <div class="span1"><%= link_to 'Edit', edit_jam_path(jam), :class => 'btn btn-mini' %></div>
+      <%= link_to 'Edit', edit_jam_path(jam), :class => 'btn btn-mini' %><br/><br/>
     <% end %>    
     <% if can? :destroy, jam %>
-      <div class="span1"><%= link_to 'Cancel', jam, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini' %></div>
+      <%= link_to 'Cancel', jam, method: :delete, data: { confirm: 'Are you sure?' }, :class => 'btn btn-mini' %>
     <% end %>
+    </div>
 
   </div>

@@ -4,6 +4,7 @@
 <% if can? :create, Jam %> 
   <%= link_to 'New Jam', new_jam_path %>
 <% end %>
+
 <br/>
 <% if can? :manage, User %> 
   <%= link_to 'Manage musicians', users_path %>

@@ -5,4 +5,4 @@ require File.expand_path('../application', __FILE__)
 JamPlan::Application.initialize!
 
 # Date/Time formatting:
-Time::DATE_FORMATS[:clock_time] = "%I:%M %p"
+Time::DATE_FORMATS[:clock_time] = "%-I:%M %p"
