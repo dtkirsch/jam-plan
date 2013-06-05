@@ -34,6 +34,6 @@
   </div>
   <br/>
 
-  <% if jam.date >= Date.today %> 
+  <% if jam.date >= Date.today || can?(:manage, User) %> 
     <%= render 'attendees', :jam => jam %>
   <% end %>
