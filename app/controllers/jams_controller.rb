@@ -3,8 +3,8 @@ class JamsController < ApplicationController
   # GET /jams
   # GET /jams.json
   def index
-    @future_jams = Jam.where("date >= (?)", Time.now)
-    @past_jams = Jam.where("date < (?)", Time.now)
+    @future_jams = Jam.where("date >= (?)", Date.today)
+    @past_jams = Jam.where("date < (?)", Date.today)
 
     respond_to do |format|
       format.html # index.html.erb

@@ -33,19 +33,7 @@
 
   </div>
   <br/>
-  <div class="row-fluid" >
-    <br/>
-      <table class="table table-striped">
-	<% if jam.users.length > 0 %>
-  	  <tr><th>Musicians:</th></tr>
-	    <% jam.users.each do |user| %>
-              <tr><td>
-                <%= user.name %>, <%=user.instrument %> <br/>
-              </td></tr>
-            <% end %>
-        <% end %>
-        <tr><td>
-          <%= render "jams_users/attend_form", :jam => jam %>
-        </td></tr>
-      </table>
-  </div>
+
+  <% if jam.date >= Date.today %> 
+    <%= render 'attendees', :jam => jam %>
+  <% end %>
