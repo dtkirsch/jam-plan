@@ -8,7 +8,6 @@
     <th>End</th>
     <th>Set</th>
     <th>Venue</th>
-    <th>User</th>
     <th></th>
     <th></th>
     <th></th>
@@ -28,9 +27,15 @@
     <td><%= jam.set.to_s(:clock_time) %></td>
     <td><%= jam.venue.name unless jam.venue.nil? %></td>
 
-    <td><%= link_to 'Show', jam %></td>
-    <td><%= link_to 'Edit', edit_jam_path(jam) %></td>
-    <td><%= link_to 'Cancel', jam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% if can? :show, jam %> 
+      <td><%= link_to 'Show', jam %></td>
+    <% end %>
+    <% if can? :edit, jam %>
+      <td><%= link_to 'Edit', edit_jam_path(jam) %></td>
+    <% end %>    
+    <% if can? :destroy, jam %>
+      <td><%= link_to 'Cancel', jam, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <% end %>
   </tr>
 <% end %>
 </table>
