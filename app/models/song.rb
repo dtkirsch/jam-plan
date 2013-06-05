@@ -6,6 +6,10 @@ class Song < ActiveRecord::Base
     @name
   end
 
+  def times_played
+    self.jams.where("date < (?)", Time.now).length
+  end
+
   def self.populate
     files = Dir.glob("app/assets/pdfs/*").map{|f| File.basename(f)}
     songs = {}

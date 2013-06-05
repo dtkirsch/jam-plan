@@ -8,7 +8,7 @@
     <%= f.input :end %>
     <%= f.input :set %>
     <%= f.association :venue %>
-    <%= f.association :songs, :as => :check_boxes %>
+    <%= f.association :songs, :as => :check_boxes, :label_method => lambda { |song| "#{song.name} | played #{song.times_played} times" }, collection: Song.order('name ASC') %>
   </div>
 
   <div class="form-actions">
