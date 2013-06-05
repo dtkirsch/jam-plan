@@ -15,7 +15,13 @@
     </li>
     <% if current_user.has_role? :admin %>
       <li>
-      <%= link_to 'Admin', jams_path %>
+      <%= link_to 'Manage Jams', jams_path %>
+      </li>
+      <li>
+      <%= link_to 'Manage Musicians', users_path %>
+      </li>
+      <li>
+      <%= link_to 'Manage Songs', songs_path %>
       </li>
     <% end %>
   <% else %>

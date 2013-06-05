@@ -1,13 +1,14 @@
+<h3>What is a Tango Jam?</h3>
+It's a forum for the exploration of tango music that is geared towards musicians of all levels and backgrounds. The primary objective is to gain awareness and familiarity with aspects of tango music in order to play classic tango songs that dancers will enjoy dancing to. We'll be working from lead sheets that can be downloaded for free from the Tango Jam website (you must register to access the Tango Jam RealBook). Learn how to play different rhythm patterns, how to trade off melodies, and how the instruments work together to become live tango music for dancers. We won't spend time learning how to find the notes, but we'll talk a lot about how to make your instrument sound like tango. All instruments and abilities are welcome...we just want lots of people to get excited about playing tango music for dancers.
+
+<br/><br/>
+
+<% if can? :create, Jam %> 
+  <%= link_to 'Add New Jam', new_jam_path %>
+<% end %>
+
 <%= render 'jams_list', :list_name => "Upcoming jams", :jams => @future_jams %>
 
 <br/>
-<% if can? :create, Jam %> 
-  <%= link_to 'New Jam', new_jam_path %>
-<% end %>
-
-<br/>
-<% if can? :manage, User %> 
-  <%= link_to 'Manage musicians', users_path %>
-<% end %> 
 
 <%= render 'jams_list', :list_name => "Past jams", :jams => @past_jams %>
