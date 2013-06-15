@@ -14,9 +14,15 @@
 <% @songs.each do |song| %>
   <tr>
     <td><%= song.name %></td>
-    <td>  <%= link_to song.trebleC, asset_path(song.trebleC), :class => "links" %></td>
-    <td>  <%= link_to song.bassC, asset_path(song.bassC), :class => "links" %></td>
-    <td>  <%= link_to song.trebleBb, asset_path(song.trebleBb), :class => "links" %></td>
+    <td> <% if song.trebleC %>
+      <%= link_to song.trebleC, asset_path(song.trebleC), :class => "links" %>
+    <% end %></td>
+    <td> <% if song.bassC %>
+      <%= link_to song.bassC, asset_path(song.bassC), :class => "links" %>
+    <% end %></td>
+    <td> <% if song.trebleBb %> 
+      <%= link_to song.trebleBb, asset_path(song.trebleBb), :class => "links" %>
+    <% end %></td>
     <td><%= link_to 'Show', song %></td>
     <% if can? :destroy, Song %>
       <td><%= link_to 'Delete', song, method: :delete, data: { confirm: 'Are you sure?' } %></td>
