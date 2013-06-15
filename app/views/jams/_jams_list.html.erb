@@ -6,7 +6,7 @@
 <% end %> 
 
 <table class="table table-striped">
-<% jams.each do |jam| %>
+<% jams.sort_by{|j| j.date}.reverse.each do |jam| %>
   <tr><td>
       <%= render 'jam', :jam => jam %>
   </tr></td>
