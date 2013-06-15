@@ -14,7 +14,8 @@ class Song < ActiveRecord::Base
     files = Dir.glob("app/assets/pdfs/*").map{|f| File.basename(f)}
     songs = {}
     files.map{|f| f.sub(/ \(.*\)_[A-Za-z]*.pdf/, "").downcase}.uniq.each{|s| songs[s]={}}
-    files.each{|f| name=f.sub(/ \(.*\)_[A-Za-z]*.pdf/, "").downcase; type=f.sub(/.*\(/,'').sub(/\).*/,'').downcase; songs[name][type]=f}
-    songs.each{|name, files| Song.new(:name=>name, :trebleC=>files['c'], :bassC=>files['bass clef'], :trebleBb=>files['bb']).save!}
+    files.each{|f| name=f.sub(/ \(.*\)_[A-Za-z]*.pdf/, "").downcase; type=f.sub(/.*\(([^()]*)\)_[A-Za-z]*.pdf/,"\\1").downcase; songs[name][type]=f}
+    songs.each{|name, files| Song.find_or_create_by_name(:name=>name, :trebleC=>files['c'], :bassC=>files['bass clef'], :trebleBb=>files['bb']).save!}
+    0
   end
 end
