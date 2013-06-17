@@ -1,6 +1,6 @@
 <div class="span11">
   <% if !current_user %>
-     Please  <%= link_to 'sign in', new_user_session_path %> or <%= link_to 'register', new_user_registration_path %> to attend this jam
+     Please  <%= link_to 'sign in', new_user_session_path %> or <%= link_to 'sign up', new_user_registration_path %> to attend this jam
   <% elsif current_user.jams.include? jam %>
     <%= render 'jams_users/cancel', :jam => jam %>
   <% else %>

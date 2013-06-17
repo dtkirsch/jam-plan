@@ -1,4 +1,6 @@
 class JamsUsersController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /jams_users
   # GET /jams_users.json
   def index
