@@ -1,6 +1,6 @@
 class Jam < ActiveRecord::Base
-  # start (time), end (time), set (time), name (string), date (date)
-  attr_accessible :end, :name, :set, :start, :date
+  # start (time), end (time), set (time), name (string), date (date), description (text)
+  attr_accessible :end, :name, :set, :start, :date, :description
 
   # Jams have venues
   belongs_to :venue

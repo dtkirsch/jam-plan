@@ -11,6 +11,7 @@
     <br/>
     <br/>
     <%= f.association :songs, :as => :check_boxes, :label_method => lambda { |song| "#{song.name} | played #{song.times_played} times" }, collection: Song.order('name ASC') %>
+    <%= f.input :description, :input_html => {:rows => 8, :class => "span8"} %>
   </div>
 
   <div class="form-actions">

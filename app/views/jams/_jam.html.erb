@@ -36,6 +36,15 @@
     </div>
 
   </div>
+
+  <% if jam.description && ! jam.description.blank? %>
+  <div class="row-fluid" >
+    <div class="span10" style="margin-top: 20px">
+      <%= jam.description %>
+    </div>
+  </div>
+  <% end %>
+
   <br/>
 
   <% if jam.date >= Date.today || can?(:manage, User) %> 
