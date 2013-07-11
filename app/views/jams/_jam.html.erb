@@ -15,12 +15,16 @@
       Perform: <br/><%= jam.set.to_s(:clock_time) %>
     </div>
     <div class="span5">
-      Songs:<br/>
-      <ol>
-        <% jam.songs.each do |song| %>
-        <li><%= render "songs/song", :song => song, :jam => jam %></li>
-        <% end %>
-      </ol>
+      Songs:
+      <% if jam.songs.length > 0 %>
+        <br/>
+        <ol>
+          <% jam.songs.each do |song| %>
+          <li><%= render "songs/song", :song => song, :jam => jam %></li>
+          <% end %>
+      <% else %>
+	TBA
+      <% end %>
     </div>
     <div class="span1">
     <% if can? :edit, jam %>
