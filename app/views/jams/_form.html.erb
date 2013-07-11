@@ -7,6 +7,7 @@
     <%= f.input :start, :as => :time, :ampm => true %>
     <%= f.input :end, :as => :time, :ampm => true %>
     <%= f.input :set, :as => :time, :ampm => true %>
+    <%= f.input :max_attendees %>
     <%= f.association :venue %> (or <%= link_to "Add a new venue", new_venue_path %>)
     <br/>
     <br/>

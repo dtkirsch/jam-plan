@@ -1,9 +1,9 @@
 <div class="span11">
-  <% if !current_user %>
-     Please  <%= link_to 'sign in', new_user_session_path %> or <%= link_to 'sign up', new_user_registration_path %> to attend this jam
-  <% elsif current_user.jams.include? jam %>
+  <% if can? :attend, jam %>
+    <%= render 'jams_users/attend', :jam => jam %>
+  <% elsif can? :decline, jam %>
     <%= render 'jams_users/cancel', :jam => jam %>
   <% else %>
-    <%= render 'jams_users/attend', :jam => jam %>
+    Registration for this jam is currently closed or full
   <% end %>
-<div class="span11">
+</div>

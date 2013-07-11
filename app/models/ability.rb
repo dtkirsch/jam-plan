@@ -5,6 +5,8 @@ class Ability
     user ||= User.new # guest user (not logged in)
     if user.has_role? :admin
       can :manage, :all
+      cannot :attend, Jam
+      cannot :decline, Jam
     end
 
     can :index, Jam
@@ -16,6 +18,14 @@ class Ability
     # Only show chart download links for future jams
     can :download_past, Jam do |jam|
       jam.date.to_time + 1.day > Time.now
+    end
+
+    can :attend, Jam do |jam|
+      ! jam.full? && ! user.attending?(jam)
+    end
+
+    can :decline, Jam do |jam|
+      user.attending?(jam)
     end
 
     # Define abilities for the passed in user here. For example:

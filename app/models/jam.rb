@@ -1,6 +1,6 @@
 class Jam < ActiveRecord::Base
   # start (time), end (time), set (time), name (string), date (date), description (text)
-  attr_accessible :end, :name, :set, :start, :date, :description
+  attr_accessible :end, :name, :set, :start, :date, :description, :max_attendees
 
   # Jams have venues
   belongs_to :venue
@@ -22,6 +22,10 @@ class Jam < ActiveRecord::Base
   def to_s
     return name if name && !(name.empty?)
     return "#{self.venue.name} jam"
+  end
+
+  def full?
+    max_attendees && max_attendees > 0 && max_attendees <= users.length
   end
 
 end

@@ -15,5 +15,8 @@ class User < ActiveRecord::Base
   has_and_belongs_to_many :jams
   attr_accessible :jam_ids
 
+  def attending?(jam)
+    jams.include? jam
+  end
   
 end

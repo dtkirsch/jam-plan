@@ -37,10 +37,14 @@
 </p>
 
 <p>
-  <b>Venue:</b>
-  <%= @jam.description %>
+  <b>Max Attendees:</b>
+  <%= @jam.max_attendees %>
 </p>
 
+<p>
+  <b>Notes:</b>
+  <%= @jam.description %>
+</p>
 
 <%= render "jams_users/attend_form", :jam => @jam %> 
 <br/><br/>
