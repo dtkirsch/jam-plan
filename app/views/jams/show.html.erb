@@ -32,7 +32,7 @@
   <b>Songs:</b>
   <br/>
   <% @jam.songs.each do |song| %>
-    <%= render "songs/song", :song => song %>
+    <%= render "songs/song", :song => song, :jam => jam %>
   <% end %>
 </p>
 
