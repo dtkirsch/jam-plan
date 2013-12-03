@@ -1,10 +1,16 @@
 <%= song.name %> 
 <br/>
 <% if can? :download_past, jam %> 
+ <% if song.trebleC && !(song.trebleC.blank?) %>
   <%= link_to "Treble C", asset_path(song.trebleC), :class => "links" %>
   |
+ <% end %>
+ <% if song.bassC && !(song.bassC.blank?) %>
   <%= link_to "Bass C", asset_path(song.bassC), :class => "links" %>
   |
+ <% end %>
+ <% if song.trebleBb && !(song.trebleBb.blank?) %>
   <%= link_to "Treble Bb", asset_path(song.trebleBb), :class => "links" %>
+ <% end %>
   <br/>
 <% end %>
